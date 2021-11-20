@@ -1,0 +1,9 @@
+micronaut:
+  application:
+    name: storeMicronautKotlin
+mongodb:
+  uri: mongodb://${MONGO_HOST:""}:${MONGO_PORT:""}/store
+jackson:
+  serializationInclusion: ALWAYS
+  dateFormat: yyyy-MM-dd'T'HH:mm:ss
+  timeZone: America/Sao_Paulo
