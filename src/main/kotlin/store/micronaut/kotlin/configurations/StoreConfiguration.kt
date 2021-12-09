@@ -9,4 +9,9 @@ interface StoreConfiguration {
     @get:NotNull
     @get:NotBlank
     val database: String
+    interface Database{
+        val host: String
+        val port: String
+    }
+    val databaseConnection: Database
 }

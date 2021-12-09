@@ -10,6 +10,7 @@ version = "0.1"
 group = "store.micronaut.kotlin"
 
 val kotlinVersion = project.properties.get("kotlinVersion")
+val junitJupiterVersion = project.properties.get("junitJupiterVersion")
 repositories {
     mavenCentral()
 }
@@ -39,12 +40,24 @@ dependencies {
     implementation("io.micronaut.mongodb:micronaut-mongo-sync")
     runtimeOnly("com.fasterxml.jackson.module:jackson-module-kotlin")
     implementation("io.reactivex.rxjava3:rxjava:3.1.2")
+    // openapi
+    implementation("io.swagger.core.v3:swagger-annotations")
+    kapt("io.micronaut.openapi:micronaut-openapi:3.2.0")
+
     testImplementation("io.micronaut.test:micronaut-test-kotest:3.0.3")
     testImplementation("io.kotest:kotest-runner-junit5:4.6.3")
     testImplementation("io.kotest:kotest-assertions-core:4.6.3")
     testImplementation("io.kotest:kotest-property:4.6.3")
+    testImplementation("io.kotest.extensions:kotest-extensions-testcontainers:1.0.1")
     testImplementation("io.mockk:mockk:1.12.0")
     testImplementation("io.kotest:kotest-runner-junit5-jvm:4.6.0")
+    testImplementation("org.junit.jupiter:junit-jupiter-api:${junitJupiterVersion}")
+    testImplementation("org.junit.jupiter:junit-jupiter-params:${junitJupiterVersion}")
+    testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:${junitJupiterVersion}")
+    testImplementation("org.testcontainers:testcontainers:1.16.2")
+    testImplementation("org.testcontainers:junit-jupiter:1.16.2")
+    testImplementation("org.testcontainers:mongodb:1.16.2")
+
 }
 
 
